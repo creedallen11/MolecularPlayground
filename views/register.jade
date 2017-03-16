@@ -1,0 +1,53 @@
+extends layout.jade
+
+block content     
+  div.row
+    div.col.m8.offset-m2
+      div.card
+        div.card-content
+          span.card-title.black-text User Registration
+          if message
+            p #{message}
+          form(action='/users/register', method='post')
+            div.row
+              div.input-field.col.m6.s12
+                input.validate(name='firstName', type='text', placeholder='First Name')
+              
+              div.input-field.col.m6.s12
+                input.validate(name='lastName', type='text', placeholder='Last Name')
+              
+              div.input-field.col.m12.s12
+                input.validate(name='email', type='text', placeholder='Email')
+              
+              div.input-field.col.m12.s12
+                input.validate(name='username', type='text', placeholder='Username')
+              
+              div.input-field.col.m6.s12
+                input.validate(name='password', type='password', placeholder='Password')
+              
+              div.input-field.col.m6.s12
+                input.validate(name='confirm_pw', type='password', placeholder='Confirm Password')
+              
+              div.input-field.col.m12.s12
+                textarea(placeholder='Bio', style='height:150px')
+              
+              div.input-field.col.m6.s12
+                select.browser-default(name='organization', defaultValue='1')
+                  option(value="1") Organization 1
+                  option(value="2") Organization 2
+                  option(value="3") Organization 3
+              
+              div.input-field.col.m6.s12
+                select.browser-default(name='role', defaultValue='1')
+                  option(value="1") Author
+                  option(value="2") Local Administrator
+            
+            div.row
+              div.col.m6.s6
+                button.btn.col.m12.s12 Register
+              
+              div.col.m6.s6
+                a(href='/login')
+                  button.btn.col.m12.s12(type='button') Cancel
+
+  include scripts.jade
